@@ -1,0 +1,17 @@
+.container {
+    margin: 0 auto;
+    max-width: 1100px;
+    width: 100%;
+}
+
+#console-1 {
+    height: 100px;
+}
+
+#console-2 {
+    height: 100px;
+}
+
+.row {
+    margin: 0px 0px 0px 0px;
+}
