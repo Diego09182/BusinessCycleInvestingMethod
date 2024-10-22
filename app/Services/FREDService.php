@@ -130,21 +130,21 @@ class FREDService
     }
 
     public function getInitialClaims()
-{
-    $response = $this->client->get($this->baseUrl . 'observations', [
-        'query' => [
-            'series_id' => 'ICSA',
-            'api_key' => $this->apiKey,
-            'file_type' => 'json',
-            'frequency' => 'w',
-            'limit' => 52,
-            'sort_order' => 'asc',
-            'observation_start' => date('Y-m-d', strtotime('-1 year')),
-        ],
-    ]);
+    {
+        $response = $this->client->get($this->baseUrl . 'observations', [
+            'query' => [
+                'series_id' => 'ICSA',
+                'api_key' => $this->apiKey,
+                'file_type' => 'json',
+                'frequency' => 'w',
+                'limit' => 52,
+                'sort_order' => 'asc',
+                'observation_start' => date('Y-m-d', strtotime('-1 year')),
+            ],
+        ]);
 
-    return json_decode($response->getBody()->getContents(), true);
-}
+        return json_decode($response->getBody()->getContents(), true);
+    }
 
 
     public function getCorporateProfitsAfterTax()
@@ -168,6 +168,38 @@ class FREDService
         $response = $this->client->get($this->baseUrl . 'observations', [
             'query' => [
                 'series_id' => 'IMPGSCA',
+                'api_key' => $this->apiKey,
+                'file_type' => 'json',
+                'limit' => 24,
+                'sort_order' => 'asc',
+                'observation_start' => date('Y-m-d', strtotime('-2 year')),
+            ],
+        ]);
+
+        return json_decode($response->getBody()->getContents(), true);
+    }
+
+    public function federalFundsEffectiveRate()
+    {
+        $response = $this->client->get($this->baseUrl . 'observations', [
+            'query' => [
+                'series_id' => 'DFF',
+                'api_key' => $this->apiKey,
+                'file_type' => 'json',
+                'limit' => 24,
+                'sort_order' => 'asc',
+                'observation_start' => date('Y-m-d', strtotime('-2 year')),
+            ],
+        ]);
+
+        return json_decode($response->getBody()->getContents(), true);
+    }
+
+    public function m2()
+    {
+        $response = $this->client->get($this->baseUrl . 'observations', [
+            'query' => [
+                'series_id' => 'WM2NS',
                 'api_key' => $this->apiKey,
                 'file_type' => 'json',
                 'limit' => 24,

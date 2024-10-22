@@ -3,7 +3,6 @@
 namespace App\Services;
 
 use GuzzleHttp\Client;
-use Illuminate\Support\Facades\Log;
 
 class NewsApiService
 {
@@ -37,7 +36,6 @@ class NewsApiService
             $response = $this->client->get($url);
             return json_decode($response->getBody(), true);
         } catch (\Exception $e) {
-            Log::error('News API request failed: ' . $e->getMessage());
             return ['error' => 'API request failed'];
         }
     }
