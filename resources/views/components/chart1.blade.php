@@ -26,7 +26,7 @@
     <div class="card col m6 left">
         <div class="card-content">
             <div class="row">
-                <button @click="showChart1('compositeLeadingIndicator')" class="btn black">領先指標</button>
+                <button @click="showChart1('compositeLeadingIndicator')" class="btn black">訂單擴散指數</button>
                 <button @click="showChart1('manufacturersNewOrders')" class="btn black">新訂單</button>
                 <button @click="showChart1('inventoriesToSalesRatio')" class="btn black">庫銷比</button>
                 <button @click="showChart1('producerPriceIndex')" class="btn black">生產者物價</button>

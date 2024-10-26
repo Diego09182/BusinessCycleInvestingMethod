@@ -2,22 +2,24 @@
 
 namespace App\Http\Controllers;
 
-use App\Services\TwseApiService;
-use App\Services\NewsApiService;
-use App\Services\FREDService;
-use Illuminate\Http\Request;
 use App\Models\Asset;
+use App\Services\FREDService;
+use App\Services\NewsApiService;
+use App\Services\TwseApiService;
+use Illuminate\Http\Request;
 
 class MainController extends Controller
 {
     protected $twseApiService;
+
     protected $newsApiService;
+
     protected $fredService;
 
     public function __construct(
-        TwseApiService $twseApiService, 
-        NewsApiService $newsApiService, 
-        FREDService $fredService, 
+        TwseApiService $twseApiService,
+        NewsApiService $newsApiService,
+        FREDService $fredService,
     ) {
         $this->twseApiService = $twseApiService;
         $this->newsApiService = $newsApiService;

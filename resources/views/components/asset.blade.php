@@ -24,12 +24,14 @@
     </div>
     <div class="card col m6">
         <div class="card-content">
-            <table border="1">
+            <h5><b>資產總額：{{ $totalValue }}</b></h5>
+            <table>
                 <thead>
                     <tr>
                         <th>資產名稱</th>
                         <th>資產類型</th>
                         <th>資產價值</th>
+                        <th>百分比</th>
                         <th>操作</th>
                     </tr>
                 </thead>
@@ -39,6 +41,7 @@
                             <td>{{ $asset->name }}</td>
                             <td>{{ $asset->type }}</td>
                             <td>{{ $asset->value }}</td>
+                            <td>{{ number_format($asset->percentage, 2) }}%</td>
                             <td>
                                 <form action="{{ route('assets.destroy', $asset->id) }}" method="POST">
                                     @csrf
@@ -50,6 +53,7 @@
                     @endforeach
                 </tbody>
             </table>
+            <canvas id="assetsChart"></canvas>
         </div>
     </div>
 </div>

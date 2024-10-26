@@ -3,18 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Services\TwseApiService;
-use App\Services\NewsApiService;
-use App\Services\FREDService;
-use App\Services\GovernmentDataService;
 use Illuminate\Http\Request;
-use App\Models\Asset;
 
 class StockController extends Controller
 {
     protected $twseApiService;
 
     public function __construct(
-        TwseApiService $twseApiService, 
+        TwseApiService $twseApiService,
     ) {
         $this->twseApiService = $twseApiService;
     }

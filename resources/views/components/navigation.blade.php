@@ -6,21 +6,7 @@
 			</b>
 		</a>
 		<ul class="left hide-on-med-and-down">
-			<li><a href="{{ route('assets.index') }}">資產配置</a></li>
+			<li><a href="{{ route('assets.index') }}"><b>資產配置</b></a></li>
 		</ul>
 	</div>
 </nav>
-<ul id="slide-out" class="sidenav">
-	<li>
-		<div class="user-view">
-			<div class="responsive-img" class="background">
-				<img class="responsive-img" alt="SWIFT FOX LOGO">
-			</div>
-		</div>
-	</li>
-	<li><a class="waves-effect"><i class="material-icons">info_outline</i><b>開發者資訊</b></a></li>
-	<li><a class="waves-effect"><b>開發者名稱:</b></a></li>
-	<li><a class="waves-effect"><b>SSSS</b></a></li>
-	<li><a class="waves-effect"><b>個人信箱:</b></a></li>
-	<li><a class="waves-effect"><b>ssss.gladmasy@gmail.com</b></a></li>
-</ul>

@@ -7,13 +7,15 @@ use GuzzleHttp\Client;
 class NewsApiService
 {
     protected $apiKey;
+
     protected $client;
+
     protected $baseUrl;
 
     public function __construct()
     {
+        $this->client = new Client;
         $this->apiKey = env('NEWSAPI_KEY');
-        $this->client = new Client();
         $this->baseUrl = 'https://newsapi.org/v2/top-headlines';
     }
 
@@ -23,7 +25,7 @@ class NewsApiService
             'country' => $country,
             'category' => $category,
             'apiKey' => $this->apiKey,
-            'pageSize' => $max
+            'pageSize' => $max,
         ];
 
         return $this->makeRequest($params);
@@ -32,8 +34,9 @@ class NewsApiService
     protected function makeRequest(array $params)
     {
         try {
-            $url = $this->baseUrl . '?' . http_build_query($params);
+            $url = $this->baseUrl.'?'.http_build_query($params);
             $response = $this->client->get($url);
+
             return json_decode($response->getBody(), true);
         } catch (\Exception $e) {
             return ['error' => 'API request failed'];

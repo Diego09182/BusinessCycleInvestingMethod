@@ -391,7 +391,7 @@ function drawCompositeLeadingIndicatorChart(compositeLeadingIndicatorData) {
         data: {
             labels: labels,
             datasets: [{
-                label: '綜合領先指標',
+                label: '未來新訂單;紐約的擴散指數',
                 data: compositeLeadingIndicator,
                 borderColor: 'rgba(255, 159, 64, 1)',
                 backgroundColor: 'rgba(255, 159, 64, 0.2)',
