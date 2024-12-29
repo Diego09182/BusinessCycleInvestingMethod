@@ -211,4 +211,21 @@ class FREDService
 
         return json_decode($response->getBody()->getContents(), true);
     }
+
+    public function getConsumerSentiment()
+    {
+        $response = $this->client->get($this->baseUrl . 'observations', [
+            'query' => [
+                'series_id' => 'UMCSENT',
+                'api_key' => $this->apiKey,
+                'file_type' => 'json',
+                'limit' => 24,
+                'sort_order' => 'asc',
+                'observation_start' => date('Y-m-d', strtotime('-2 year')),
+            ],
+        ]);
+
+        return json_decode($response->getBody()->getContents(), true);
+    }
+
 }

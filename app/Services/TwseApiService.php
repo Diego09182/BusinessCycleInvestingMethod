@@ -18,10 +18,10 @@ class TwseApiService
 
     public function getHistoricalStockData($symbol)
     {
-        $currentDate = now()->format('Ymd');
+        $previousMonthDate = now()->subMonth()->format('Ymd');
 
         $params = [
-            'date' => $currentDate,
+            'date' => $previousMonthDate,
             'stockNo' => $symbol,
         ];
 

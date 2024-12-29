@@ -18,7 +18,7 @@
 <script>
 $(document).ready(function() {
 
-    fetchData('0050');
+    fetchData('006208');
 
     $('#stockForm').on('submit', function(e) {
         e.preventDefault();
@@ -60,6 +60,7 @@ function fetchData(symbol) {
             drawRealImportsChart(response.realImportsData);
             drawfederalFundsEffectiveRateChart(response.federalFundsEffectiveRateData);
             drawM2Chart(response.m2Data);
+            drawConsumerSentimentChart(response.consumerSentimentData);
         }
     });
 }
@@ -617,6 +618,47 @@ function drawM2Chart(m2Data) {
                     title: {
                         display: true,
                         text: '金額 (十億美元)'
+                    },
+                    beginAtZero: false
+                }
+            }
+        }
+    });
+}
+
+function drawConsumerSentimentChart(consumerSentimentData) {
+    const observations = consumerSentimentData['observations'] || [];
+    const labels = observations.map(observation => {
+        const date = new Date(observation['date']);
+        return date.getFullYear() + '-' + (date.getMonth() + 1).toString().padStart(2, '0');
+    });
+    const sentimentValues = observations.map(observation => parseFloat(observation['value']));
+    const sentimentChart = document.getElementById('consumerSentimentChart').getContext('2d');
+    window.consumerSentimentChart = new Chart(sentimentChart, {
+        type: 'line',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: 'University of Michigan 消費者信心指數',
+                data: sentimentValues,
+                borderColor: 'rgba(255, 159, 64, 1)',
+                backgroundColor: 'rgba(255, 159, 64, 0.2)',
+                borderWidth: 5,
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                x: {
+                    title: {
+                        display: true,
+                        text: '日期'
+                    }
+                },
+                y: {
+                    title: {
+                        display: true,
+                        text: '信心指數'
                     },
                     beginAtZero: false
                 }

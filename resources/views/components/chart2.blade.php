@@ -7,6 +7,7 @@
                 <button @click="showChart2('unemployment')" class="btn black left">失業率</button>
                 <button @click="showChart2('corporateProfits')" class="btn black left">企業利潤</button>
                 <button @click="showChart2('realImports')" class="btn black left">進口貨物</button>
+                <button @click="showChart2('consumerSentiment')" class="btn black left">消費者信心</button> <!-- 新增按鈕 -->
             </div>
         </div>
     </div>
@@ -28,6 +29,7 @@
             <canvas v-show="Chart2 === 'gdp'" id="gdpChart"></canvas>
             <canvas v-show="Chart2 === 'corporateProfits'" id="corporateProfitsChart"></canvas>
             <canvas v-show="Chart2 === 'realImports'" id="realImportsChart"></canvas>
+            <canvas v-show="Chart2 === 'consumerSentiment'" id="consumerSentimentChart"></canvas>
         </div>
     </div>
     <div class="card col m6 right">

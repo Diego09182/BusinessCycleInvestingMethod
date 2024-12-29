@@ -57,6 +57,7 @@ class MainController extends Controller
         $federalFundsEffectiveRateData = $this->fredService->federalFundsEffectiveRate();
         $m2Data = $this->fredService->m2();
         $realImportsData = $this->fredService->getRealImportsOfGoodsAndServices();
+        $consumerSentimentData = $this->fredService->getConsumerSentiment();
 
         return response()->json([
             'data' => $data,
@@ -73,6 +74,7 @@ class MainController extends Controller
             'realImportsData' => $realImportsData,
             'federalFundsEffectiveRateData' => $federalFundsEffectiveRateData,
             'm2Data' => $m2Data,
+            'consumerSentimentData' => $consumerSentimentData,
         ]);
     }
 }
